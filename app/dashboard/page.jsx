@@ -1,3 +1,6 @@
+
+// import { prisma } from "@/app/util/db";
+import { prisma } from "./util/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 // import { redirect } from "next/navigation";
 import Link from "next/link";
