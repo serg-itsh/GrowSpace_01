@@ -1,18 +1,15 @@
-
-// import { prisma } from "@/app/util/db";
-// import { prisma } from "./util/db";
-
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { prisma } from "@/lib/prisma";
+// import { prisma } from "@/lib/prisma";
+// import { prisma } from "./util/db";
+import { prisma } from "@/app/util/db";
 // import { redirect } from "next/navigation";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import {BlogPostCard } from "app/component/general/BlogPostCard"
+import { BlogPostCard } from "app/component/general/BlogPostCard";
 
 async function getData(userId) {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const data = await prisma.blogPost.findMany({
-   
     where: {
       authorId: userId,
     },
@@ -32,8 +29,6 @@ export default async function Dashboard() {
   // const data = await getData(user?.id);
   const data = await getData(user.id);
 
-  
-
   // if (!user) {
   //     return redirect("/api/auth/register")
   // }
@@ -48,11 +43,8 @@ export default async function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-     
         {data.map((item) => (
-       
-
-        <BlogPostCard data={item} key={item.id}/>
+          <BlogPostCard data={item} key={item.id} />
         ))}
       </div>
     </div>
