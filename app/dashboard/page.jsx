@@ -7,6 +7,8 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { BlogPostCard } from "app/component/general/BlogPostCard";
 
+
+
 async function getData(userId) {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const data = await prisma.blogPost.findMany({

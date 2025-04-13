@@ -60,5 +60,7 @@ await prisma.blogPost.create({
     throw new Error("Blog post creation failed");
   }
 
+  revalidatePath("/");
+
   return redirect("/dashboard");
 }
