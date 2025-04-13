@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 // import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
@@ -8,14 +10,19 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/components";
 // import { buttonVariants } from "./components/ui/button.tsx"
 
-import {
-  getKindeServerSession,
-} from "@kinde-oss/kinde-auth-nextjs/server";
+// import {
+//   getKindeServerSession,
+// } from "@kinde-oss/kinde-auth-nextjs/server";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 
-export async function Navbar() {
-  const {getUser} = getKindeServerSession();
-  const user = await getUser();
+// export async function Navbar() {
+export  function Navbar() {
+  // const {getUser} = getKindeServerSession();
+  const {getUser} = useKindeBrowserClient();
+  // const user = await getUser();
+  const user = getUser();
+
   return (
     <nav className="py-5 flex item-center justify-between">
       <div className="flex items-center gap-6">
